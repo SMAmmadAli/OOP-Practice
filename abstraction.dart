@@ -7,56 +7,42 @@
 //  Abstract classes can't be instantiated.
 //  Try creating an instance of a concrete subtype
 
-// void main() {
-//   BaseApiImplemention baseApiImplemention = BaseApiImplemention();
-//   Map<String, dynamic> credentials = {
-//     "email": "tumhareEmail@gmail.com",
-//     "password": "tumhara_Password"
-//   };
-//   baseApiImplemention.postApi(credentials['email'], credentials['password']);
-//   baseApiImplemention.getApi(
-//     Future.delayed(Duration(seconds: 1))
-//   );
-// }
-
 void main() {
   BaseApiImplemention baseApiImplemention = BaseApiImplemention();
   Map<String, dynamic> credentials = {
     "email": "tumhareEmail@gmail.com",
     "password": "tumhara_Password"
   };
-  baseApiImplemention.postApi(credentials['email'], credentials['password']);
-  baseApiImplemention.getApi(Future.delayed(Duration(seconds: 5)));
+  baseApiImplemention.loginPageApi(
+      credentials['email'], credentials['password']);
+  baseApiImplemention.homePageApi(Future.delayed(Duration(seconds: 3)));
+  baseApiImplemention.profilePageApi();
 }
-
-// abstract class BaseApiServices {
-//   void postApi(String email, String password);
-
-//   void getApi( Function());
-// }
 
 abstract class BaseApiServices {
-  void postApi(String email, String password);
+  void loginPageApi(String email, String password);
 
-  void getApi(Future<dynamic> future);
+  void homePageApi(Future<dynamic> future);
+
+  void profilePageApi();
 }
-
-// class BaseApiImplemention extends BaseApiServices {
-//   @override
-//   void getApi(Function()) {
-//     print("get Api");
-//   }
 
 class BaseApiImplemention extends BaseApiServices {
   @override
-  void getApi(Future<dynamic> future) {
+  void homePageApi(Future<dynamic> future) {
     future.then((value) {
-      print("get Api");
+      print("Home Page Screen");
     });
   }
 
   @override
-  void postApi(String email, String password) {
+  void loginPageApi(String email, String password) {
     print("Successfully login");
+  }
+
+  @override
+  void profilePageApi() async {
+    await Future.delayed(Duration(seconds: 5));
+    print("User Profile Screen");
   }
 }
