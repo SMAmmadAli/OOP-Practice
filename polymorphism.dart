@@ -1,5 +1,7 @@
-// ######POLYMORPHISM
-// ek object jo multiple form le sakta hai.
+//              POLYMORPHISM
+// ----------------------------------------
+
+// ek object/instance jo multiple form le sakta hai.
 
 void main() {
   // Cricket cricket = Cricket();

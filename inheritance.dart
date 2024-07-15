@@ -44,7 +44,7 @@ class Player {
   final String? bowler;
   String? role;
 
-  // Attributes
+  // Constructor
 
   Player({required this.batsman, required this.bowler});
 
