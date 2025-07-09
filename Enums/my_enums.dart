@@ -6,7 +6,6 @@
 enum Gender{
   male, female, other;
 
-  String get displayName => this.toString().split('.').last;
 }
 
 enum status{
@@ -22,6 +21,18 @@ class Person{
 
 void main(){
   Person person = Person(name: "Ammad", gender: Gender.male);
+
+  Gender gender = Gender.male;
+
+  switch(gender){
+    case Gender.male:
+      print("Male");
+    case Gender.female:
+      print("Female");
+    case Gender.
+    other:
+      print("Other");
+  }
+
   print(person.name);
-  print(person.gender.displayName);
 }
